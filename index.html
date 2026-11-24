@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Block Run</title>
+
+    <link rel="stylesheet" href="casca.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>BLOCK RUN</h1>
+
+        <!-- ÁREA DO JOGO -->
+        <div class="game">
+
+            <div class="game-info">
+                <span id="score">Pontos: 0</span>
+                <span id="speed">Velocidade: 1x</span>
+            </div>
+
+            <div id="steve"></div>
+
+            <div id="creeper"></div>
+
+            <!-- GAME OVER DENTRO DO JOGO -->
+            <div id="game-over-screen">
+
+                <h2>GAME OVER</h2>
+
+                <p id="final-score">Pontuação: 0</p>
+
+                <p id="timer-text">
+                    Responda antes que o tempo acabe!
+                </p>
+
+                <div class="timer-container">
+                    <div id="timer-bar"></div>
+                </div>
+
+                <p id="timer-count">10 segundos</p>
+
+            </div>
+
+            <!-- TELA INICIAL -->
+            <div id="start-screen">
+
+                <h2>BLOCK RUN</h2>
+
+                <p>Prepare-se para correr!</p>
+
+                <button id="start-button">Jogar</button>
+
+            </div>
+
+        </div>
+
+        <p class="instructions">
+            Pressione ESPAÇO ou ↑ para pular
+        </p>
+
+
+        <!-- QUESTIONÁRIO ABAIXO DO JOGO -->
+        <section id="quiz-section">
+
+            <h2>Desafio de sobrevivência</h2>
+
+            <p id="question"></p>
+
+            <div id="answers"></div>
+
+            <p id="feedback"></p>
+
+        </section>
+
+        <!-- RESULTADO FINAL -->
+        <section id="result-section">
+
+            <h2>Fim de jogo!</h2>
+
+            <p id="result-score"></p>
+
+            <button id="restart-button">
+                Jogar novamente
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="game.js"></script>
+
+</body>
+
+</html>

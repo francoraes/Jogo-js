@@ -1,0 +1,392 @@
+
+/* =================================
+   CONFIGURAÇÕES GERAIS
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f0f0f0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    padding: 30px 15px;
+}
+
+h1 {
+    margin-bottom: 25px;
+    color: #333;
+    letter-spacing: 3px;
+}
+
+
+/* =================================
+   ÁREA DO JOGO
+================================= */
+
+.game {
+    width: 600px;
+    max-width: 100%;
+    height: 200px;
+
+    border: 2px solid black;
+    margin: 0 auto;
+
+    position: relative;
+    overflow: hidden;
+
+    background-color: white;
+}
+
+
+/* =================================
+   INFORMAÇÕES DO JOGO
+================================= */
+
+.game-info {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    right: 12px;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    z-index: 2;
+}
+
+
+/* =================================
+   STEVE
+================================= */
+
+#steve {
+    width: 50px;
+    height: 50px;
+
+    background-image: url("img/steve.jpg");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+
+/* =================================
+   ANIMAÇÃO DO PULO
+================================= */
+
+.jump {
+    animation: jump 0.85s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@keyframes jump {
+
+    0% {
+        bottom: 0;
+    }
+
+    35% {
+        bottom: 85px;
+    }
+
+    55% {
+        bottom: 85px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+
+}
+
+
+/* =================================
+   CREEPER
+================================= */
+
+#creeper {
+    width: 20px;
+    height: 40px;
+
+    position: absolute;
+    bottom: 0;
+    left: 580px;
+
+    background-image: url("img/creeper.jpg");
+    background-size: 20px 40px;
+    background-repeat: no-repeat;
+}
+
+
+/* =================================
+   MOVIMENTO DO CREEPER
+================================= */
+
+.creeper-run {
+    animation: block var(--duration) linear forwards;
+}
+
+@keyframes block {
+
+    0% {
+        left: var(--start-left);
+    }
+
+    100% {
+        left: -20px;
+    }
+
+}
+
+
+/* =================================
+   INSTRUÇÕES
+================================= */
+
+.instructions {
+    margin-top: 15px;
+    color: #555;
+    font-size: 14px;
+}
+
+
+/* =================================
+   GAME OVER
+================================= */
+
+#game-over-screen {
+    display: none;
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    z-index: 5;
+}
+
+#game-over-screen h2 {
+    color: #ff4545;
+    font-size: 30px;
+}
+
+#final-score {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#timer-text {
+    font-size: 13px;
+}
+
+
+/* =================================
+   BARRA DE TEMPO
+================================= */
+
+.timer-container {
+    width: 220px;
+    height: 12px;
+
+    background: #555;
+
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#timer-bar {
+    width: 100%;
+    height: 100%;
+
+    background: #4caf50;
+
+    transition: width 0.1s linear;
+}
+
+#timer-count {
+    font-size: 13px;
+}
+
+
+/* =================================
+   TELA INICIAL
+================================= */
+
+#start-screen {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    z-index: 6;
+}
+
+#start-screen h2 {
+    font-size: 30px;
+    color: #65c76b;
+}
+
+#start-button,
+#restart-button {
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #4caf50;
+    color: white;
+
+    font-weight: bold;
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+#start-button:hover,
+#restart-button:hover {
+    background: #388e3c;
+}
+
+
+/* =================================
+   QUESTIONÁRIO
+================================= */
+
+#quiz-section {
+    display: none;
+
+    width: 600px;
+    max-width: 100%;
+
+    margin: 25px auto;
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+#quiz-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#question {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+#answers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#answers button {
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    background: #eee;
+
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#answers button:hover:not(:disabled) {
+    background: #ccc;
+}
+
+#answers button:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+#feedback {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+/* =================================
+   RESULTADO FINAL
+================================= */
+
+#result-section {
+    display: none;
+
+    width: 600px;
+    max-width: 100%;
+
+    margin: 25px auto;
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 10px;
+}
+
+#result-section h2 {
+    color: #e53935;
+    margin-bottom: 15px;
+}
+
+#result-score {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
+/* =================================
+   RESPONSIVIDADE
+================================= */
+
+@media (max-width: 500px) {
+
+    .game {
+        height: 180px;
+    }
+
+    #quiz-section {
+        padding: 18px;
+    }
+
+    .timer-container {
+        width: 180px;
+    }
+
+}
